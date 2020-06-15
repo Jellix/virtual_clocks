@@ -1,11 +1,22 @@
-with Ada.Calendar;
-with Ada.Containers.Doubly_Linked_Lists;
+------------------------------------------------------------------------
+--  Copyright (C) 2010-2020 by <ada.rocks@jlfencey.com>               --
+--                                                                    --
+--  This work is free. You can redistribute it and/or modify it under --
+--  the terms of the Do What The Fuck You Want To Public License,     --
+--  Version 2, as published by Sam Hocevar. See the LICENSE file for  --
+--  more details.                                                     --
+------------------------------------------------------------------------
+pragma License (Unrestricted);
 
 ------------------------------------------------------------------------
 --  Clocks package.
 --
 --  Defines basic types and the clock interface with its operations.
 ------------------------------------------------------------------------
+
+with Ada.Calendar;
+with Ada.Containers.Doubly_Linked_Lists;
+
 package Clocks is
 
    --  Speedup from "real" time to up to 2 hours / second.
@@ -53,7 +64,7 @@ package Clocks is
    --  Forwards the current time by given amount (in virtual clock time).
    ---------------------------------------------------------------------
    procedure Forward_Time (Clock  : in out Clock_Interface;
-                           Amount : Duration)
+                           Amount : in     Duration)
    is abstract;
 
    ---------------------------------------------------------------------
